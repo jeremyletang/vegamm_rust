@@ -1,0 +1,10 @@
+[package]
+name = "vegamm_rust"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+vega_wallet_client = { git = "https://github.com/jeremyletang/vega-rust-sdk" }
+vega_protobufs = { git = "https://github.com/jeremyletang/vega-rust-sdk" }
