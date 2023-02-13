@@ -12,7 +12,7 @@ use vega_protobufs::{
         ListOrdersRequest, ListPositionsRequest, ObserveAccountsRequest, ObserveMarketsDataRequest,
         ObserveOrdersRequest, ObservePositionsRequest,
     },
-    vega::{AccountType, Asset, Market, MarketData, Order, Position},
+    vega::{Asset, Market, MarketData, Order, Position},
 };
 
 pub struct VegaStore {
@@ -178,18 +178,6 @@ impl VegaStore {
 
     pub fn get_assets(&self) -> Vec<Asset> {
         return self.assets.clone().into_values().collect();
-    }
-
-    pub fn get_account(
-        &self,
-        typ: AccountType,
-        asset: String,
-        market: String,
-    ) -> Option<AccountBalance> {
-        return self
-            .accounts
-            .get(&format!("{}{}{}", typ as i32, asset, market))
-            .and_then(|a| Some(a.clone()));
     }
 
     pub fn save_market_data(&mut self, md: MarketData) {
